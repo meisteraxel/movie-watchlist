@@ -53,10 +53,11 @@ header::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-width: 1200px;
+  min-width: 100vw;
+  padding: 0 20px;
 }
 
-form {
+#form {
   display: flex;
 }
 
@@ -68,6 +69,7 @@ form {
   border: none;
   font-family: "Inter", sans-serif;
   color: #a5a5a5;
+  border-radius: 6px 0px 0px 6px;
 }
 
 #search-btn {
@@ -78,6 +80,7 @@ form {
   font-family: "Inter", sans-serif;
   color: white;
   cursor: pointer;
+  border-radius: 0px 6px 6px 0px;
 }
 
 main {
@@ -97,4 +100,34 @@ main {
   font-weight: bold;
   gap: 5px;
   color: #2e2e2f;
+}
+
+.movie-item {
+  display: flex;
+  max-width: 1200px;
+  margin: 20px;
+  align-items: center;
+}
+
+.movie-poster {
+  width: 150px;
+  margin-right: 20px;
+}
+
+.movie-data {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
