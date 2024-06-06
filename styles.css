@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #121212;
+  font-family: "Inter", sans-serif;
+  color: white;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: url("./assets/bg-header.jpg") no-repeat center center;
+  background-size: cover;
+  height: 250px;
+  overflow: hidden;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 17, 17, 0.384);
+}
+
+#header-content {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 250px;
+}
+
+#heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 1200px;
+}
+
+form {
+  display: flex;
+}
+
+#searchbar {
+  padding: 9px 13px;
+  width: 342px;
+  height: 38px;
+  background-color: #2e2e2f;
+  border: none;
+  font-family: "Inter", sans-serif;
+  color: #a5a5a5;
+}
+
+#search-btn {
+  height: 38px;
+  width: 120px;
+  background-color: #4b4b4b;
+  border: none;
+  font-family: "Inter", sans-serif;
+  color: white;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 1200px;
+  min-height: calc(100vh - 250px);
+}
+
+#placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  gap: 5px;
+  color: #2e2e2f;
+}

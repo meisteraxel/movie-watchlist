@@ -6,5 +6,31 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Movie Watchlist</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div id="header-content">
+        <div id="heading">
+          <h1>Find your film</h1>
+          <a href="/watchlist.html">My Watchlist</a>
+        </div>
+        <form action="">
+          <input
+            type="text"
+            name="searchbar"
+            id="searchbar"
+            placeholder="Fight Club"
+            required
+          />
+          <button id="search-btn">Search</button>
+        </form>
+      </div>
+    </header>
+    <main>
+      <div id="placeholder">
+        <img src="./assets/explore-icon.png" alt="movie-icon" />
+        <p id="exploring">Start exploring</p>
+      </div>
+      <div id="movie-container"></div>
+    </main>
+  </body>
 </html>
