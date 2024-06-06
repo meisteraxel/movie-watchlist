@@ -2,6 +2,7 @@ const searchBtn = document.getElementById("search-btn");
 const searchInput = document.getElementById("searchbar");
 const movieList = document.getElementById("movie-list");
 const placeholder = document.getElementById("placeholder");
+let watchlist = [];
 
 searchBtn.addEventListener("click", performSearch);
 searchInput.addEventListener("keydown", (event) => {
@@ -28,31 +29,50 @@ function getMovieList(movie) {
           )
             .then((response) => response.json())
             .then((movie) => {
-              console.log(movie);
-              movieList.innerHTML += `
-                    <div class="movie-item">
-                        <img src="${movie.Poster}" class="movie-poster"/>
-                        <div class="movie-data">
-                            <div class="title">
-                                <h3>${movie.Title}</h3>
-                                <img src="./assets/star-icon.png" heigth="15px"/>
-                                <p>${movie.imdbRating}</p>
-                            </div>
-                            <div class="stats">
-                                <p>${movie.Runtime}</p>
-                                <p>${movie.Genre}</p>
-                                <button class="watchlist-btn">Add to Watchlist</button>
-                            </div>     
-                            <p>${movie.Plot}</p>
+              if (movie.Response === "True") {
+                movieList.innerHTML += `
+                <div class="movie-item" id="${movie.Title}">
+                    <img src="${movie.Poster}" class="movie-poster"/>
+                    <div class="movie-data">
+                        <div class="title">
+                            <h3>${movie.Title}</h3>
+                            <img src="./assets/star-icon.png" heigth="15px"/>
+                            <p>${movie.imdbRating}</p>
                         </div>
+                        <div class="stats">
+                            <p>${movie.Runtime}</p>
+                            <p>${movie.Genre}</p>
+                            <button class="watchlist-btn">Add to Watchlist</button>
+                        </div>     
+                        <p>${movie.Plot}</p>
                     </div>
-                    <hr/>
-                `;
+                </div>
+                <hr/>
+            `;
+              }
             });
         });
       } else {
         placeholder.style.display = "block";
         placeholder.innerHTML = "No movies found. Please try again.";
       }
+    });
+}
+
+//Add Movie to Watchlist
+
+movieList.addEventListener("click", (event) => {
+  if (event.target.classList.contains("watchlist-btn")) {
+    const movieTitle = event.target.closest(".movie-item").id;
+    addToWatchlist(movieTitle);
+  }
+});
+
+function addToWatchlist(movieTitle) {
+  fetch(`http://www.omdbapi.com/?apikey=32be5929&t=${movieTitle}&type=movie`)
+    .then((response) => response.json())
+    .then((movie) => {
+      watchlist.push(movie);
+      localStorage.setItem("watchlist", JSON.stringify(watchlist));
     });
 }
