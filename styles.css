@@ -18,6 +18,7 @@ a {
   text-decoration: none;
   color: white;
   cursor: pointer;
+  transition: all 0.2s linear;
 }
 
 a:hover {
@@ -85,6 +86,11 @@ header::before {
   color: white;
   cursor: pointer;
   border-radius: 0px 6px 6px 0px;
+  transition: all 0.2s linear;
+}
+
+#search-btn:hover {
+  background-color: #2e2e2f;
 }
 
 main {

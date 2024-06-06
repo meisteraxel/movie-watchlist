@@ -65,6 +65,9 @@ movieList.addEventListener("click", (event) => {
   if (event.target.classList.contains("watchlist-btn")) {
     const movieTitle = event.target.closest(".movie-item").id;
     addToWatchlist(movieTitle);
+    event.target.textContent = "Added to Watchlist!";
+    event.target.disabled = true;
+    event.target.style.textDecoration = "none";
   }
 });
 
